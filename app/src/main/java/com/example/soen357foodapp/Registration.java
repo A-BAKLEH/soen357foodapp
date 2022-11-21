@@ -34,6 +34,8 @@ public class Registration extends AppCompatActivity {
         termCheckBox = findViewById(R.id.checkBox_terms);
         buttonSignUp = findViewById(R.id.signup_button);
 
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
         Objects.requireNonNull(getSupportActionBar()).setElevation(0f);
 
         buttonSignUp.setOnClickListener(new View.OnClickListener() {
