@@ -39,6 +39,12 @@ public class MainActivity extends AppCompatActivity {
 
         MealModel meal1 = new MealModel('b');
         meal1.addRecipeToMeal(omeletteRecipe);
+        meal1.addRecipeToMeal(omeletteRecipe);
+        meal1.addRecipeToMeal(omeletteRecipe);
+        meal1.addRecipeToMeal(omeletteRecipe);
+        meal1.addRecipeToMeal(omeletteRecipe);
+        meal1.addRecipeToMeal(omeletteRecipe);
+        meal1.addRecipeToMeal(omeletteRecipe);
 
         DayModel day1 = new DayModel(new Date());
         day1.addMealInDay(meal1);
@@ -55,7 +61,15 @@ public class MainActivity extends AppCompatActivity {
         generateData();
         setContentView(R.layout.activity_main);
 
+        findViewById(R.id.box).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), RecipeListActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
 
     }
-    }
+}
 
