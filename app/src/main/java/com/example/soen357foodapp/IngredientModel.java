@@ -14,10 +14,20 @@ public class IngredientModel {
 
     public double iqtty; // ingredient quantity
 
+    public String unit = "pcs"; // track measurement unit for ingredient, by default "pcs"
+
     public IngredientModel(String iname, double iqtty) {
         this.iid = iCount;
         this.iname = iname;
         this.iqtty = iqtty;
+        iCount++;
+    }
+
+    public IngredientModel(String iname, double iqtty, String unit) {
+        this.iid = iCount;
+        this.iname = iname;
+        this.iqtty = iqtty;
+        this.unit = unit;
         iCount++;
     }
 }
