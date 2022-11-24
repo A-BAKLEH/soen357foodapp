@@ -10,6 +10,9 @@ import java.util.Date;
  */
 public class DayModel {
     // POTENTIALLY USELESS CLASS, BASED ON IMPLEMENTATION DECISIONS TO BE MADE LATER
+
+    public static int dCount; // tracks number of days in the system
+
     public int did; // day ID
 
     public Date date; // date of the day
@@ -20,6 +23,13 @@ public class DayModel {
         this.did = did;
         this.date = date;
         this.mealsInDay = mealsInDay;
+    }
+
+    public DayModel(Date date) {
+        this.did = dCount;
+        this.date = date;
+        this.mealsInDay = new ArrayList<>();
+        dCount++;
     }
 
     // add a meal for the day

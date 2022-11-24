@@ -8,6 +8,7 @@ import java.util.ArrayList;
  * Creation: 2022-11-23
  */
 public class RecipeModel {
+    public static int rCount; // tracks number of recipes in the system
     public int rid; // recipe id
 
     public String rname, steps; // recipe name and the steps to prepare it
@@ -16,8 +17,8 @@ public class RecipeModel {
 
     public int difficulty, timeRequired, rating, servingSize; // some metrics about the recipe
 
-    public RecipeModel(int rid, String rname, String steps, ArrayList<IngredientModel> ingredients, int difficulty,
-                       int timeRequired, int rating, int servingSize) {
+    public RecipeModel(int rid, String rname, ArrayList<IngredientModel> ingredients, int difficulty,
+                       int timeRequired, int rating, int servingSize, String steps) {
         this.rid = rid;
         this.rname = rname;
         this.steps = steps;
@@ -26,6 +27,18 @@ public class RecipeModel {
         this.timeRequired = timeRequired;
         this.rating = rating;
         this.servingSize = servingSize;
+    }
+    public RecipeModel(String rname, ArrayList<IngredientModel> ingredients, int difficulty,
+                       int timeRequired, int rating, int servingSize, String steps) {
+        this.rid = rCount;
+        this.rname = rname;
+        this.steps = steps;
+        this.ingredients = ingredients;
+        this.difficulty = difficulty;
+        this.timeRequired = timeRequired;
+        this.rating = rating;
+        this.servingSize = servingSize;
+        rCount++;
     }
 
     // add an ingredient to the recipe
