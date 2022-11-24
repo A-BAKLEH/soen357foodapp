@@ -22,6 +22,7 @@ public class DayModel {
         this.mealsInDay = mealsInDay;
     }
 
+    // add a meal for the day
     public void addMealInDay(MealModel meal) {
         this.mealsInDay.add(meal);
     }

@@ -6,11 +6,11 @@ package com.example.soen357foodapp;
  * Creation: 2022-11-23
  */
 public class IngredientModel {
-    public int iid;
+    public int iid; // ingredient ID
 
-    public String iname;
+    public String iname; // ingredient name
 
-    public int iqtty;
+    public int iqtty; // ingredient quantity
 
     public IngredientModel(int iid, String iname, int iqtty) {
         this.iid = iid;

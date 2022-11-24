@@ -6,19 +6,19 @@ package com.example.soen357foodapp;
  * Creation: 2022-11-23
  */
 public class UserModel {
-    public static int uCount;
+    public static int uCount; // number of users in the system
 
-    public int uid;
+    public int uid; // user ID
 
-    public String passwd;
+    public String passwd; // user's password in cleartext
 
-    public String fname, lname;
+    public String fname, lname; // first and last name of user
 
     public UserModel(String fname, String lname, String passwd) {
         this.uid = uCount;
         this.fname = fname;
         this.lname = lname;
         this.passwd = passwd;
-        uCount++;
+        uCount++; // update number of users in the system
     }
 }

@@ -13,13 +13,13 @@ public class MealModel {
 
     public char mcat; // (b)reakfast, (l)unch, (d)inner, used for filtering
 
-    public Date mdate; // date of the meal, optional based on implementation decisions to be made later
+    //public Date mdate; // date of the meal, optional based on implementation decisions to be made later
 
     public ArrayList<RecipeModel> recipesInMeal; // recipes in the current meal
 
-    public MealModel(int mid, char mcat, Date mdate, ArrayList<RecipeModel> recipesInMeal) {
+    public MealModel(int mid, char mcat, ArrayList<RecipeModel> recipesInMeal) {
         this.mid = mid;
-        this.mdate = mdate;
+        this.mcat = mcat;
         this.recipesInMeal = recipesInMeal;
     }
 

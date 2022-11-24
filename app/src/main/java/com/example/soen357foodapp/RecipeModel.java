@@ -8,13 +8,13 @@ import java.util.ArrayList;
  * Creation: 2022-11-23
  */
 public class RecipeModel {
-    public int rid;
+    public int rid; // recipe id
 
-    public String rname, steps;
+    public String rname, steps; // recipe name and the steps to prepare it
 
-    public ArrayList<IngredientModel> ingredients;
+    public ArrayList<IngredientModel> ingredients; // ingredients needed for the recipe
 
-    public int difficulty, timeRequired, rating;
+    public int difficulty, timeRequired, rating; // some metrics about the recipe
 
     public RecipeModel(int rid, String rname, String steps, ArrayList<IngredientModel> ingredients, int difficulty, int timeRequired, int rating) {
         this.rid = rid;
@@ -26,10 +26,12 @@ public class RecipeModel {
         this.rating = rating;
     }
 
+    // add an ingredient to the recipe
     public void addIngredient(IngredientModel ingredient) {
         this.ingredients.add(ingredient);
     }
 
+    // update the recipe rating
     public void updateRating(int rating) {
         this.rating = rating;
     }
