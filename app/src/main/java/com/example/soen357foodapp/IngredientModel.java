@@ -12,9 +12,9 @@ public class IngredientModel {
 
     public String iname; // ingredient name
 
-    public int iqtty; // ingredient quantity
+    public double iqtty; // ingredient quantity
 
-    public IngredientModel(String iname, int iqtty) {
+    public IngredientModel(String iname, double iqtty) {
         this.iid = iCount;
         this.iname = iname;
         this.iqtty = iqtty;

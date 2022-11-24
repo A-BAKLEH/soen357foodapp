@@ -14,9 +14,10 @@ public class RecipeModel {
 
     public ArrayList<IngredientModel> ingredients; // ingredients needed for the recipe
 
-    public int difficulty, timeRequired, rating; // some metrics about the recipe
+    public int difficulty, timeRequired, rating, servingSize; // some metrics about the recipe
 
-    public RecipeModel(int rid, String rname, String steps, ArrayList<IngredientModel> ingredients, int difficulty, int timeRequired, int rating) {
+    public RecipeModel(int rid, String rname, String steps, ArrayList<IngredientModel> ingredients, int difficulty,
+                       int timeRequired, int rating, int servingSize) {
         this.rid = rid;
         this.rname = rname;
         this.steps = steps;
@@ -24,6 +25,7 @@ public class RecipeModel {
         this.difficulty = difficulty;
         this.timeRequired = timeRequired;
         this.rating = rating;
+        this.servingSize = servingSize;
     }
 
     // add an ingredient to the recipe
