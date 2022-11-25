@@ -62,7 +62,7 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(getApplicationContext(), Magic.class);
+                Intent intent = new Intent(getApplicationContext(), Meal.class);
                 startActivity(intent);
                 //startActivity(new Intent(Login.this, Registration.class));
             }

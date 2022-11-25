@@ -23,7 +23,7 @@ import java.util.ArrayList;
 
 public class Meal extends AppCompatActivity {
 
-    protected ImageButton backBtn, favBtn, unfavBtn;
+    protected ImageButton backBtn, favBtn, plusBtn, checkBtn, unfavBtn;
     protected ImageView mealImage;
     protected TextView difficulty, rating, time, recipeDescription, recipeName, instruText;
     protected ExtendedFloatingActionButton plan;
@@ -50,6 +50,8 @@ public class Meal extends AppCompatActivity {
 
         backBtn = findViewById(R.id.backBtn);
         favBtn = findViewById(R.id.favBtn);
+        plusBtn = findViewById(R.id.plan);
+        checkBtn = findViewById(R.id.unplan);
         unfavBtn = findViewById(R.id.unfavBtn);
         mealImage = findViewById(R.id.pic);
         difficulty = findViewById(R.id.diff);
@@ -57,7 +59,6 @@ public class Meal extends AppCompatActivity {
         time = findViewById(R.id.time);
         recipeDescription = findViewById(R.id.description);
         recipeName = findViewById(R.id.name);
-        plan = findViewById(R.id.plan);
         ingredients = findViewById(R.id.ingr);
         instructions = findViewById(R.id.instru);
         instruText = findViewById(R.id.instruText);
@@ -70,7 +71,8 @@ public class Meal extends AppCompatActivity {
 
         recyclerView.setAdapter(recyclerViewAdapter);
         recyclerView.setHasFixedSize(true);
-
+        plusBtn.setVisibility(View.VISIBLE);
+        checkBtn.setVisibility(View.INVISIBLE);
         recipeDescription.setText("Here, our chef was inspired by a risotto to create a great creamy orzo. We can find the same great ingredients of a risotto, except for the rice which was replaced by orzo. Enjoy a simple version all cooked in the oven : no needs to stir for long minutes!");
         //rating.setText();
         //difficulty.setText();
@@ -98,6 +100,7 @@ public class Meal extends AppCompatActivity {
             }
         });
 
+
         unfavBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -111,17 +114,31 @@ public class Meal extends AppCompatActivity {
             }
         });
 
-        plan.setOnClickListener(new View.OnClickListener() {
+
+        plusBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (i%2 == 0){
-                    plan.setText("Remove from your plan");
-                    inPlan=true;
-                }else{
-                    plan.setText("Add to your plan");
-                    inPlan=false;
+                    plusBtn.setVisibility(View.INVISIBLE);
+                    checkBtn.setVisibility(View.VISIBLE);
+                    favorite =true;
                 }
                 i++;
+                Toast.makeText(getApplicationContext(), "The meal was added to your plan!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+        checkBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (i%2 != 0){
+                    checkBtn.setVisibility(View.INVISIBLE);
+                    plusBtn.setVisibility(View.VISIBLE);
+                    favorite = false;
+                }
+                i++;
+                Toast.makeText(getApplicationContext(), "The meal was removed from your plan!", Toast.LENGTH_SHORT).show();
             }
         });
 
