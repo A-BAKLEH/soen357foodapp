@@ -17,8 +17,11 @@ public class RecipeModel {
 
     public int difficulty, timeRequired, rating, servingSize; // some metrics about the recipe
 
+    public char rcat; // (b)reakfast, (l)unch, (d)inner, used for filtering
+
+
     public RecipeModel(int rid, String rname, ArrayList<IngredientModel> ingredients, int difficulty,
-                       int timeRequired, int rating, int servingSize, String steps) {
+                       int timeRequired, int rating, int servingSize, char rcat, String steps) {
         this.rid = rid;
         this.rname = rname;
         this.steps = steps;
@@ -29,7 +32,7 @@ public class RecipeModel {
         this.servingSize = servingSize;
     }
     public RecipeModel(String rname, ArrayList<IngredientModel> ingredients, int difficulty,
-                       int timeRequired, int rating, int servingSize, String steps) {
+                       int timeRequired, int rating, int servingSize, char rcat, String steps) {
         this.rid = rCount;
         this.rname = rname;
         this.steps = steps;
@@ -38,6 +41,7 @@ public class RecipeModel {
         this.timeRequired = timeRequired;
         this.rating = rating;
         this.servingSize = servingSize;
+        this.rcat = rcat;
         rCount++;
     }
 
@@ -49,5 +53,15 @@ public class RecipeModel {
     // update the recipe rating
     public void updateRating(int rating) {
         this.rating = rating;
+    }
+
+    public static ArrayList<RecipeModel> getRecipesByCat(ArrayList<RecipeModel> recipes, char cat) {
+        ArrayList<RecipeModel> filteredRecipes = new ArrayList<>();
+
+        for (RecipeModel recipe : recipes)
+            if (recipe.rcat == cat)
+                filteredRecipes.add(recipe);
+
+        return filteredRecipes;
     }
 }
