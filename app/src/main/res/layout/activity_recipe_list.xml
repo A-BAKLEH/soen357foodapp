@@ -20,10 +20,9 @@
         <Space
                 android:layout_width="0dp"
                 android:layout_height="0dp" android:layout_weight="1"/>
-        <Button
-                android:text="Filter"
+        <Spinner
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/filterButton"/>
+                android:layout_height="wrap_content" android:id="@+id/filterSpinner"/>
         <Space
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"/>

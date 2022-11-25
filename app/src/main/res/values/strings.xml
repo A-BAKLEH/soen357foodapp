@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">soen357foodapp</string>
+    <string-array name="recipe_list_filters">
+        <item>Filter</item>
+        <item>Breakfast</item>
+        <item>Lunch</item>
+        <item>Dinner</item>
+    </string-array>
 </resources>

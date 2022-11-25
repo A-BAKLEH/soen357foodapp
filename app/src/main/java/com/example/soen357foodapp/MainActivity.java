@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
 
     public static ArrayList<DayModel> _DAYS = new ArrayList<>();
 
+    public static ArrayList<RecipeModel> _RECIPES = new ArrayList<>();
+
 
     public void generateData() {
         _USERS.add(new UserModel("Bobby", "Brown", "pass123"));
@@ -34,8 +36,16 @@ public class MainActivity extends AppCompatActivity {
         omeletteIngredients.add(new IngredientModel("Garlic",2,"cloves, minced"));
         omeletteIngredients.add(new IngredientModel("Oil",1.5,"cup"));
 
-        RecipeModel omeletteRecipe = new RecipeModel("Omelette",omeletteIngredients,0,15,5,3,"Step 1. Crack eggs over bowl\nStep 2. Beat eggs until frothy\nStep 3. Combine all ingredients in the bowl\nStep 4. Mix thoroughly\nStep 5. Pour bowl mixture into deep pan\nStep 6. Cook over medium heat for 20-25 min, until desired colour.");
+        RecipeModel omeletteRecipe = new RecipeModel("Omelette",omeletteIngredients,0,15,5,3,'B',"Step 1. Crack eggs over bowl\nStep 2. Beat eggs until frothy\nStep 3. Combine all ingredients in the bowl\nStep 4. Mix thoroughly\nStep 5. Pour bowl mixture into deep pan\nStep 6. Cook over medium heat for 20-25 min, until desired colour.");
 
+        _RECIPES.add(omeletteRecipe);
+        _RECIPES.add(omeletteRecipe);
+        _RECIPES.add(omeletteRecipe);
+        _RECIPES.add(omeletteRecipe);
+        _RECIPES.add(omeletteRecipe);
+        _RECIPES.add(omeletteRecipe);
+        _RECIPES.add(omeletteRecipe);
+        _RECIPES.add(omeletteRecipe);
 
         MealModel meal1 = new MealModel('b');
         meal1.addRecipeToMeal(omeletteRecipe);
@@ -61,13 +71,10 @@ public class MainActivity extends AppCompatActivity {
         generateData();
         setContentView(R.layout.activity_main);
 
-        findViewById(R.id.box).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), RecipeListActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-            }
+        findViewById(R.id.box).setOnClickListener(x -> {
+            Intent intent = new Intent(getApplicationContext(), RecipeListActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
         });
 
     }
