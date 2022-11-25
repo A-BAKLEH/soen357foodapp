@@ -71,13 +71,19 @@ public class Meal extends AppCompatActivity {
         recyclerView.setAdapter(recyclerViewAdapter);
         recyclerView.setHasFixedSize(true);
 
-        //recipeDescription.setText();
+        recipeDescription.setText("Here, our chef was inspired by a risotto to create a great creamy orzo. We can find the same great ingredients of a risotto, except for the rice which was replaced by orzo. Enjoy a simple version all cooked in the oven : no needs to stir for long minutes!");
         //rating.setText();
         //difficulty.setText();
         //time.setText();
-        //recipeName.setText();
-        //instruText.setText();
-        //mealImage.setImageResource(R.drawable.);
+        recipeName.setText("Creamy Crevettes");
+        instruText.setText("Heat oil a large skillet over medium-high heat. Season shrimp with salt and pepper and fry for 1-2 minutes on each side, until just cooked through and pink. Transfer to a bowl; set aside.\n" +
+                "Melt the butter in the same skillet. Sauté garlic until fragrant (about 30 seconds). Pour in the white wine or broth; allow to reduce to half while scraping any bits off of the bottom of the pan.\n" +
+                "Reduce heat to low-medium heat, add the cream and bring to a gentle simmer, while stirring occasionally. Season with salt and pepper to your taste.\n" +
+                "\n" +
+                "Add the parmesan cheese and allow sauce to gently simmer for a further minute or so until the cheese melts and sauce thickens.\n" +
+                "Add the shrimp back into the pan, sprinkle with parsley. Taste test sauce and adjust salt and pepper, if needed.\n" +
+                "Serve over pasta, rice or steamed veg.");
+        mealImage.setImageResource(R.drawable.crevettes);
 
         favBtn.setOnClickListener(new View.OnClickListener() {
             @Override

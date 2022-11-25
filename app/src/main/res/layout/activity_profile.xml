@@ -7,6 +7,16 @@
     android:background="#E8F4EA"
     tools:ignore="textContrastCheck">
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:background="#233D4D"
+        app:itemIconTint="@color/white"
+        app:labelVisibilityMode="unlabeled"
+        app:menu="@menu/bottom_navigation" />
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -28,7 +38,7 @@
         android:textColor="#233D4D"/>
 
     <ImageView
-        android:id="@+id/img"
+        android:id="@+id/profile"
         android:layout_width="125dp"
         android:layout_height="100dp"
         android:layout_marginStart="270dp"

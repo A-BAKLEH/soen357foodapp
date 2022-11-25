@@ -4,21 +4,15 @@ import static android.app.PendingIntent.getActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.content.SharedPreferences;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -33,10 +27,12 @@ public class MainActivity extends AppCompatActivity {
     protected ImageView mealImg, profImg;
     protected RecyclerView recyclerView;
     protected RecyclerView.Adapter adapter;
+    protected Button btn1, btn2, btn3, btn4;
     private ArrayList<String> ingrList = new ArrayList<>();
     RecyclerView.LayoutManager layoutManager;
     int ingrImages [] = {R.drawable.beef, R.drawable.chicken, R.drawable.tomato};
     public Context context = MainActivity.this;
+    private char choice;
 
     public void generateData() {
         _USERS.add(new UserModel("Bobby", "Brown", "bobby@mail.me", "pass123"));
@@ -102,6 +98,12 @@ public class MainActivity extends AppCompatActivity {
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
         });
+        findViewById(R.id.home).setOnClickListener(x -> {
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        });
+
         ingrList.add("Beef");
         ingrList.add("Chicken");
         ingrList.add("Tomato");
@@ -111,13 +113,41 @@ public class MainActivity extends AppCompatActivity {
         time = findViewById(R.id.time1);
         diff = findViewById(R.id.diff1);
         mealImg = findViewById(R.id.mealImg);
-        profImg = findViewById(R.id.profile);
+        profImg = findViewById(R.id.imageProf);
+        btn1 = findViewById(R.id.button1);
+        btn2 = findViewById(R.id.button2);
+        btn3 = findViewById(R.id.button3);
+        btn4 = findViewById(R.id.button4);
         recyclerView = findViewById(R.id.recycler);
         layoutManager = new GridLayoutManager(this,2);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);
 
-        char choice = 'B';
+
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                choice = 'B';
+            }
+        });
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                choice = 'L';
+            }
+        });
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                choice = 'D';
+            }
+        });
+        btn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                choice = 'S';
+            }
+        });
 
         ArrayList<RecipeModel> allRecipesInMeal = MainActivity._RECIPES;
 
@@ -138,6 +168,24 @@ public class MainActivity extends AppCompatActivity {
                 adapter = new RecipeListAdapter(allRecipesInMeal, context);
                 recyclerView.setAdapter(adapter);
         }
+
+        profImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Profile.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
+
+        mealImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Meal.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
 
     }
 }

@@ -67,12 +67,32 @@ public class Magic extends AppCompatActivity {
         magic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //go to food recipe for you page with specific filter (ingrList)
-                //Intent intent = new Intent(getApplicationContext(), Magic.class);
-                //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                //intent.putExtra("login_result", true);
-                //startActivity(intent);
+                Intent intent = new Intent(getApplicationContext(), RecipeListActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
             }
+        });
+
+        findViewById(R.id.box).setOnClickListener(x -> {
+            Intent intent = new Intent(getApplicationContext(), RecipeListActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        });
+
+        findViewById(R.id.book).setOnClickListener(x -> {
+            Intent intent = new Intent(getApplicationContext(), MealPlanActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        });
+        findViewById(R.id.search).setOnClickListener(x -> {
+            Intent intent = new Intent(getApplicationContext(), Magic.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        });
+        findViewById(R.id.home).setOnClickListener(x -> {
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
         });
 
 

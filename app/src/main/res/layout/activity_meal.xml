@@ -194,8 +194,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="0dp"
         android:layout_marginBottom="-16dp"
-        android:id="@+id/recyclerView"
-        android:scrollbars="vertical"/>
+        android:id="@+id/recyclerView"/>
 
     <TextView
         android:id="@+id/instruText"
