@@ -36,6 +36,9 @@ public class RecipeListActivity extends AppCompatActivity {
         sortSpinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sortSpinner.setAdapter(sortSpinnerArrayAdapter);
         sortSpinner.setOnItemSelectedListener(new OnItemSelectedListener2());
+
+        // N.B. CURRENT IMPLEMENTATION WILL OVERWRITE RECYCLERVIEW CONTENT WHEN CHOOSING A FILTER OR SORT OPTION
+        // IN PRODUCTION CODE, THIS IS NOT GOOD. IN DEV/TEST ENVIRONMENT (NOW), THIS IS ACCEPTABLE.
     }
 
     private class OnItemSelectedListener1 implements AdapterView.OnItemSelectedListener {
