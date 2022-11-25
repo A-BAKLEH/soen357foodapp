@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void generateData() {
-        _USERS.add(new UserModel("Bobby", "Brown", "pass123"));
+        _USERS.add(new UserModel("Bobby", "Brown", "bobby@mail.me", "pass123"));
 
         ArrayList<IngredientModel> omeletteIngredients = new ArrayList<>();
         omeletteIngredients.add(new IngredientModel("Egg",5));

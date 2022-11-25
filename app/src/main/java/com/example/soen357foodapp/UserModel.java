@@ -14,10 +14,13 @@ public class UserModel {
 
     public String fname, lname; // first and last name of user
 
-    public UserModel(String fname, String lname, String passwd) {
+    public String email;
+
+    public UserModel(String fname, String lname, String email,String passwd) {
         this.uid = uCount;
         this.fname = fname;
         this.lname = lname;
+        this.email = email;
         this.passwd = passwd;
         uCount++; // update number of users in the system
     }
