@@ -18,7 +18,7 @@ import java.util.Objects;
 
 public class Registration extends AppCompatActivity {
 
-    protected EditText nameSignup, emailSignup, passwordSignup, passwordConfirmSignUp;
+    protected EditText fnameSignup, lnameSignup, emailSignup, passwordSignup, passwordConfirmSignUp;
     protected Button buttonSignUp;
     private CheckBox termCheckBox;
 
@@ -27,7 +27,8 @@ public class Registration extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        nameSignup = findViewById(R.id.signup_name);
+        fnameSignup = findViewById(R.id.signup_fname);
+        lnameSignup = findViewById(R.id.signup_lname);
         emailSignup = findViewById(R.id.signup_email);
         passwordSignup = findViewById(R.id.signup_password);
         passwordConfirmSignUp = findViewById(R.id.signup_confirm_password);
@@ -52,7 +53,7 @@ public class Registration extends AppCompatActivity {
                 }
                 else
                 {
-
+                    MainActivity. _USERS.add(new UserModel(fnameSignup.getText().toString(), lnameSignup.getText().toString(), emailSignup.getText().toString(), passwordSignup.getText().toString()));
                     Toast.makeText(getApplicationContext(), "Account Created", Toast.LENGTH_SHORT).show();
                     openAccount();
                 }

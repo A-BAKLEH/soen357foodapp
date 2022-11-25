@@ -31,6 +31,8 @@ public class Login extends AppCompatActivity {
         noAccountText = findViewById(R.id.no_account_text);
         //sign_up = findViewById(R.id.signup_on_login);
 
+        String adminemail = "admin@admin.com";
+        String adminpassword = "admin";
         Objects.requireNonNull(getSupportActionBar()).setElevation(0f);
         getSupportActionBar().setTitle(null);
 
@@ -38,10 +40,17 @@ public class Login extends AppCompatActivity {
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(emailLogin.getText().length() > 0 && passwordLogin.getText().length() > 0){
-
+                if(emailLogin.getText().toString().equals(adminemail) && passwordLogin.getText().toString().equals(adminpassword)){
                     openMain();
 
+                }
+                else if(emailLogin.getText().length() == 0 && passwordLogin.getText().length() == 0){
+                    Toast.makeText(getApplicationContext(), "Please Enter Your Credentials", Toast.LENGTH_SHORT).show();
+                }
+
+                else
+                {
+                    Toast.makeText(getApplicationContext(), "Wrong Credentials", Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -53,7 +62,7 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(getApplicationContext(), Registration.class);
+                Intent intent = new Intent(getApplicationContext(), Magic.class);
                 startActivity(intent);
                 //startActivity(new Intent(Login.this, Registration.class));
             }
