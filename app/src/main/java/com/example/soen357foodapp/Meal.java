@@ -1,5 +1,6 @@
 package com.example.soen357foodapp;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -37,12 +38,15 @@ public class Meal extends AppCompatActivity {
     boolean inPlan = false;
     int i,j;
     int ingrImages [] = {R.drawable.beef, R.drawable.chicken, R.drawable.tomato};
-    String ingrList [] = {"Beef", "Chicken", "Tomato" };
+    private ArrayList<String> ingrList = new ArrayList<>();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meal);
+        ingrList.add("Beef");
+        ingrList.add("Chicken");
+        ingrList.add("Tomato");
 
         backBtn = findViewById(R.id.backBtn);
         favBtn = findViewById(R.id.favBtn);
@@ -134,6 +138,15 @@ public class Meal extends AppCompatActivity {
                 instructions.setBackgroundColor(Color.rgb(35,61,77));
                 recyclerView.setVisibility(View.VISIBLE);
                 instruText.setVisibility(View.INVISIBLE);
+            }
+        });
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
             }
         });
 

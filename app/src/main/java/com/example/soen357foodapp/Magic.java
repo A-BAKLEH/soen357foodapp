@@ -10,6 +10,8 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -21,11 +23,11 @@ public class Magic extends AppCompatActivity {
     protected EditText userInput;
     protected Button add, magic;
     protected ImageButton backBtn;
-    protected ListView ls;
-    protected ArrayList<String> arrayList;
-    protected ArrayAdapter<String> adapter;
+    protected RecyclerView recyclerView;
+    private ArrayList<String> ingrList = new ArrayList<>();
+    RecyclerView.LayoutManager layoutManager;
+    RecyclerViewAdapter recyclerViewAdapter;
     int ingrImages [] = {R.drawable.beef, R.drawable.chicken, R.drawable.tomato};
-    String ingrList [] = {"Beef", "Chicken", "Tomato" };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,17 +37,20 @@ public class Magic extends AppCompatActivity {
         userInput = findViewById(R.id.input);
         add = findViewById(R.id.btn1);
         magic = findViewById(R.id.btn2);
-        ls = findViewById(R.id.list);
         backBtn = findViewById(R.id.returnBtn);
-
-        arrayList = new ArrayList<>();
+        recyclerView = findViewById(R.id.recyclerView);
+        layoutManager = new GridLayoutManager(this,2);
 
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                arrayList.add(userInput.getText().toString());
-                //ingrList.add(userInput.getText().toString());
+                ingrList.add(userInput.getText().toString());
+                recyclerView.setLayoutManager(layoutManager);
+                recyclerViewAdapter = new RecyclerViewAdapter(ingrImages, ingrList);
+
+                recyclerView.setAdapter(recyclerViewAdapter);
+                recyclerView.setHasFixedSize(true);
                 userInput.getText().clear();
             }
         });
@@ -53,9 +58,9 @@ public class Magic extends AppCompatActivity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent intent = new Intent(getApplicationContext(), Magic.class);
-                //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                //startActivity(intent);
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
             }
         });
 

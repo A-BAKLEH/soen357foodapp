@@ -3,6 +3,9 @@ package com.example.soen357foodapp;
 import static android.app.PendingIntent.getActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
 import android.content.Context;
@@ -11,7 +14,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.content.SharedPreferences;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -22,7 +29,14 @@ public class MainActivity extends AppCompatActivity {
     public static ArrayList<DayModel> _DAYS = new ArrayList<>();
 
     public static ArrayList<RecipeModel> _RECIPES = new ArrayList<>();
-
+    protected TextView userName, time, diff, mealName;
+    protected ImageView mealImg, profImg;
+    protected RecyclerView recyclerView;
+    protected RecyclerView.Adapter adapter;
+    private ArrayList<String> ingrList = new ArrayList<>();
+    RecyclerView.LayoutManager layoutManager;
+    int ingrImages [] = {R.drawable.beef, R.drawable.chicken, R.drawable.tomato};
+    public Context context = MainActivity.this;
 
     public void generateData() {
         _USERS.add(new UserModel("Bobby", "Brown", "bobby@mail.me", "pass123"));
@@ -83,6 +97,48 @@ public class MainActivity extends AppCompatActivity {
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
         });
+        findViewById(R.id.search).setOnClickListener(x -> {
+            Intent intent = new Intent(getApplicationContext(), Magic.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        });
+        ingrList.add("Beef");
+        ingrList.add("Chicken");
+        ingrList.add("Tomato");
+
+        userName = findViewById(R.id.nameTxt);
+        mealName = findViewById(R.id.mealName);
+        time = findViewById(R.id.time1);
+        diff = findViewById(R.id.diff1);
+        mealImg = findViewById(R.id.mealImg);
+        profImg = findViewById(R.id.profile);
+        recyclerView = findViewById(R.id.recycler);
+        layoutManager = new GridLayoutManager(this,2);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(layoutManager);
+
+        char choice = 'B';
+
+        ArrayList<RecipeModel> allRecipesInMeal = MainActivity._RECIPES;
+
+        switch (choice) {
+            case 'B':
+                adapter = new RecipeListAdapter(RecipeModel.getRecipesByCat(allRecipesInMeal, 'B'), context);
+                recyclerView.setAdapter(adapter);
+                break;
+            case 'L':
+                adapter = new RecipeListAdapter(RecipeModel.getRecipesByCat(allRecipesInMeal, 'L'), context);
+                recyclerView.setAdapter(adapter);
+                break;
+            case 'D':
+                adapter = new RecipeListAdapter(RecipeModel.getRecipesByCat(allRecipesInMeal, 'D'), context);
+                recyclerView.setAdapter(adapter);
+                break;
+            default:
+                adapter = new RecipeListAdapter(allRecipesInMeal, context);
+                recyclerView.setAdapter(adapter);
+        }
+
     }
 }
 

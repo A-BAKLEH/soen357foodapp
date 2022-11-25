@@ -9,13 +9,15 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
     int []imageList;
-    String [] ingrList;
+    ArrayList<String> arrayList;
 
-    public RecyclerViewAdapter(int[] arr, String [] arr2) {
+    public RecyclerViewAdapter(int[] arr, ArrayList<String> arr2) {
         this.imageList = arr;
-        this.ingrList = arr2;
+        this.arrayList = arr2;
     }
 
     @NonNull
@@ -30,12 +32,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.imageView.setImageResource(imageList[position]);
-        holder.textView.setText(ingrList[position]);
+        holder.textView.setText(arrayList.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return ingrList.length;
+        return arrayList.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{

@@ -18,9 +18,6 @@ public class Profile extends AppCompatActivity {
     protected ImageView profileImg;
     boolean inputChange = false;
 
-
-    //retrieve info from where??
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
