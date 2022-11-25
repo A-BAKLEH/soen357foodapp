@@ -1,6 +1,7 @@
 package com.example.soen357foodapp;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 /**
  * David-Salomon Dahan
@@ -63,5 +64,26 @@ public class RecipeModel {
                 filteredRecipes.add(recipe);
 
         return filteredRecipes;
+    }
+
+    public static ArrayList<RecipeModel> sortRecipeBy(ArrayList<RecipeModel> recipes, char by) {
+        ArrayList<RecipeModel> sortedRecipes = new ArrayList<>(recipes);
+
+        switch (by) {
+            case 'N':
+                sortedRecipes.sort(Comparator.comparing(n -> n.rname));
+                break;
+            case 'D':
+                sortedRecipes.sort(Comparator.comparing(n -> n.difficulty));
+                break;
+            case 'T':
+                sortedRecipes.sort(Comparator.comparing(n -> n.timeRequired));
+                break;
+            case 'R':
+                sortedRecipes.sort(Comparator.comparing(n -> n.rating));
+                break;
+        }
+
+        return sortedRecipes;
     }
 }

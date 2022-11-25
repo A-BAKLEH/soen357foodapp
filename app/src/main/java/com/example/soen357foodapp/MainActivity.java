@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         omeletteIngredients.add(new IngredientModel("Oil",1.5,"cup"));
 
         RecipeModel omeletteRecipe = new RecipeModel("Omelette",omeletteIngredients,0,15,5,3,'B',"Step 1. Crack eggs over bowl\nStep 2. Beat eggs until frothy\nStep 3. Combine all ingredients in the bowl\nStep 4. Mix thoroughly\nStep 5. Pour bowl mixture into deep pan\nStep 6. Cook over medium heat for 20-25 min, until desired colour.");
+        RecipeModel fomeletteRecipe = new RecipeModel("FOmelette",omeletteIngredients,0,15,5,3,'B',"Step 1. Crack eggs over bowl\nStep 2. Beat eggs until frothy\nStep 3. Combine all ingredients in the bowl\nStep 4. Mix thoroughly\nStep 5. Pour bowl mixture into deep pan\nStep 6. Cook over medium heat for 20-25 min, until desired colour.");
 
         _RECIPES.add(omeletteRecipe);
         _RECIPES.add(omeletteRecipe);
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         _RECIPES.add(omeletteRecipe);
         _RECIPES.add(omeletteRecipe);
         _RECIPES.add(omeletteRecipe);
-        _RECIPES.add(omeletteRecipe);
+        _RECIPES.add(fomeletteRecipe);
 
         MealModel meal1 = new MealModel('b');
         meal1.addRecipeToMeal(omeletteRecipe);
